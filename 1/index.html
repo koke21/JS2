@@ -5,13 +5,37 @@ Tip: Investigar el evento window.onload
 
 -->
 
+<!-- En una página con muchas imágenes mostrar una alerta cuando esté
+cargado el DOM y otra después que las imágenes se hayan cargado.
+Tip: Investigar el evento window.onload
+-->
+
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
     <title></title>
+    
+    <style>
+    	img{
+    		width: 200px;
+    		height: 200px;
+    	}
+    </style>
   </head>
   <body>
+  	<img src="paine.jpg">
+  	<img src="paine.jpg">
+  	<img src="paine.jpg">
 
+    <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+  	<script>
+  		$(document).ready(function(){
+  			alert("Se ha cargado el DOM");
+		});
+      $(window).on('load', function(){
+        alert("Se han cargado las imagenes");
+    });
+  	</script>
   </body>
 </html>
